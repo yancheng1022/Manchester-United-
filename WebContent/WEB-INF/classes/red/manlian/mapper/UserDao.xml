@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="red.manlian.mapper.UserDao">
+	
+	<!-- 用户注册   -->
+	<insert id="isSuccess" parameterType="red.manlian.pojo.User" useGeneratedKeys="true" keyProperty="uid">
+      
+        insert into user(username,password,email,integration,register_time) values(#{username},#{password},#{email},#{integration},#{register_time})
+	</insert>
+	<!-- 查询root用户信息 -->
+	<select id="checkUser" parameterType="red.manlian.pojo.Sys_user" resultType="String">
+		select uid from sys_user where uid = #{uid} and password = #{password}
+	
+	</select>
+	
+	<!-- 检验用户名是否存在   -->
+	<select id="checkUserName" parameterType="String" resultType="java.lang.Integer">
+		select count(*) from user where username= #{username}
+	
+	</select>
+	
+	<!-- 检验登录用户是否存在   -->
+	<select id="user_login" parameterType="red.manlian.pojo.User" resultType="red.manlian.pojo.User">
+		select * from user where username= #{username} and password =#{password}
+	
+	</select>
+	
+
+	
+
+</mapper>

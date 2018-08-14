@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+.range{
+	text-align:center;
+	border:1px solid gray;
+	background-color:white;
+}
+.range h4{
+	color:white;
+	  font-weight: bold;
+}
+.range_title{
+	background-color:black;
+}
+.range table{
+	width:100%;
+	height:95%;
+
+	border:1px solid gray;
+}
+.range tr{
+	
+	border:1px solid gray;
+}
+.range th{
+	text-align:center; 
+	border:1px solid gray;
+}

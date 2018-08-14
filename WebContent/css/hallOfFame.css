@@ -1,0 +1,103 @@
+/*--A Design by W3layouts 
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+
+ 
+/*--top--*/
+
+/*--middle--*/
+
+.content-middle {
+  padding: 0 0 2em;
+	
+}
+
+.col-mid {
+	width:345px;
+	height:86px;
+	text-align: center;
+  background: black;
+  padding: 1.5em;
+  
+}
+.col-mid p {
+	height:55px;
+	
+  color: #fff;
+  font-size: 1em;
+  line-height: 1.8em;
+ 
+}
+.img-responsive{
+	width:345px;
+	height:200px;
+}
+ul.col-at li{
+
+	display:inline-block;
+  padding: 0 6px;	
+}
+
+.men-grid{
+	width:375px;
+	height:300px;
+	position:relative;
+	margin:15px 0;
+
+}
+ul.col-at {
+	position:absolute;
+	top:5%;
+	right:7%;
+
+}
+
+.rose{
+	background:#d81b60;
+	padding:1em;
+	color:#fff;
+
+}
+.rose-grid{
+	padding:0.5em 0;
+}
+.rose-grid span{
+	font-size:1em;
+	display:block;
+	color:#f06292;
+}
+.rose-grid label{
+	font-size:2em;
+	font-weight:300;
+}
+.col-bottom {
+  background: #20211f;
+  padding: 1.5em;
+}
+.col-bottom h5 {
+  font-size: 1.7em;
+}
+.col-bottom h5  a{
+	color:#fff;
+	text-decoration:none;
+}
+.col-bottom h5  a:hover{
+	color:#d81b60;
+}
+.col-bottom p {
+  color: #fff;
+  font-size: 1em;
+  line-height: 1.8em;
+}
+ul.col-at-in li{
+	display:inline-block;
+	padding:0 6px;	
+}
+
+
+
+

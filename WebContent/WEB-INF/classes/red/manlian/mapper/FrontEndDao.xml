@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="red.manlian.mapper.FrontEndDao">
+	<!-- 查询所有球队排名 -->
+	<select id="findRange" resultType="red.manlian.pojo.Range">
+		select * from t_range
+	
+	</select>
+	
+	<!-- 查询日程表 -->
+	<select id="findMatch" resultType="red.manlian.pojo.Match">
+		  select
+        s.*,t1.team1_img,t2.team2_img from
+        t_calendar s,t_team1 t1,t_team2 t2
+        where s.team1_name=t1.team
+        and s.team2_name=t2.team
+	
+	</select>
+	
+	<!-- 查询新闻信息 -->
+	<select id="findNews" resultType="red.manlian.pojo.News">
+		 select * from t_news
+		  order by pid 
+		  desc limit 5 ; 
+	
+	</select>
+	
+		<!-- 查询新闻信息 -->
+		<select id="findnews_page" parameterType="String" resultType="red.manlian.pojo.News">
+		 select * from t_news
+		  where
+		  pid = #{pid}
+	
+		</select>
+		
+		<!-- 展示首页轮播图片 -->
+		<select id="findRollpic" resultType="red.manlian.pojo.Roll_pic">
+		 select * from t_rollpic
+
+		</select>
+		
+		<!-- 获取现役球员总人数 -->
+		<select id="getNowPlayerCount" resultType="java.lang.Integer">
+		 select count(*)from t_nowplayer 
+
+		</select>
+		
+		<!-- 现役球员每页信息 -->
+		<select id="findPlayerListForPageBean" resultType="red.manlian.pojo.Player">
+		 select * from t_nowplayer ORDER BY ballot DESC limit #{0},#{1} 
+
+		</select>
+		
+		<!-- 名人堂成员总人数 -->
+		<select id="getNowOldPlayerCount" resultType="java.lang.Integer">
+		 select count(*)from t_oldplayer 
+
+		</select>
+		
+		<!-- 名人堂成员每页信息 -->
+		<select id="findOldPlayerListForPageBean" resultType="red.manlian.pojo.Player">
+		 select * from t_oldplayer ORDER BY ballot DESC limit #{0},#{1} 
+
+		</select>
+		
+		<!-- 现役球员投票 -->
+		<update id="vote2nowp" parameterType="java.lang.Integer">  
+   
+            update t_nowplayer set ballot = ballot+1
+            	
+            	where pid=#{pid}
+           
+                
+    
+		</update> 
+		<!-- 用户现役球员投票时间更新 -->
+		<update id="changeVote" parameterType="java.lang.String" >  
+   
+            update user set voteTime=#{1}
+            	
+            	where uid=#{0}
+                
+    
+		</update> 
+		<!-- 名人堂球员投票 -->
+		<update id="vote2oldp" parameterType="java.lang.Integer">  
+   
+            update t_oldplayer set ballot = ballot+1
+            	
+            	where pid=#{pid}
+        
+    
+		</update> 
+		<!-- 用户名人堂球员投票时间更新 -->
+		<update id="changeVote2" parameterType="java.lang.String" >  
+   
+            update user set voteTime2=#{1}
+            	
+            	where uid=#{0}
+                
+    
+		</update> 
+		<!-- 查询完整新闻信息 -->
+	<select id="findAllNews" resultType="red.manlian.pojo.News">
+		 select * from t_news
+		  order by pid 
+		  desc limit 5 ; 
+	
+	</select>
+		
+		<!-- 获取新闻总数 -->
+		<select id="getNewsCount" resultType="java.lang.Integer">
+		 select count(*)from t_news
+
+		</select>
+		
+		<!-- 新闻每页信息 -->
+		<select id="findNewsListForPageBean" resultType="red.manlian.pojo.News">
+		 select * from t_news ORDER BY pid DESC limit #{0},#{1} 
+
+		</select>
+		
+		
+		<!-- 获取图片总数 -->
+		<select id="frontPicturesCount" resultType="java.lang.Integer">
+		 select count(*)from t_picture
+
+		</select>
+		
+		<!-- 每页图片 -->
+		<select id="frontPicturesCenter" resultType="red.manlian.pojo.Picture">
+		 select * from t_picture ORDER BY pid DESC limit #{0},#{1} 
+
+		</select>
+		
+		
+		<!-- 获取图片总数 -->
+		<select id="searchPicturesCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+		 select count(*)from t_picture where name like CONCAT('%', #{name}, '%')  
+
+		</select>
+		
+		<!-- 搜索图片 -->
+		<select id="frontPicturesSerach" resultType="red.manlian.pojo.Picture">
+		 select * from t_picture WHERE name LIKE CONCAT('%',#{name},'%') ORDER BY pid DESC limit #{index},#{currentCount};
+
+		</select>
+		
+		<!-- 获取相关新闻总数 -->
+		<select id="searchNewsCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+		 select count(*)from t_news where title like CONCAT('%', #{title}, '%')  
+
+		</select>
+		
+		<!-- 搜索新闻 -->
+		<select id="frontNewsSerach" resultType="red.manlian.pojo.News">
+		 select * from t_news WHERE title LIKE CONCAT('%',#{title},'%') ORDER BY pid DESC limit #{index},#{currentCount};
+
+		</select>
+		
+		<!-- 查询上次投票时间 -->
+		<select id="findVoteTime" parameterType="java.lang.String" resultType="java.lang.String">
+			 select voteTime from user WHERE uid=#{uid};
+
+		</select>
+		<!-- 查询上次名人堂投票时间 -->
+		<select id="findVoteTime2" parameterType="java.lang.String" resultType="java.lang.String">
+			 select voteTime2 from user WHERE uid=#{uid};
+
+		</select>
+		
+		<!-- 获取视频总数 -->
+		<select id="frontVideosCount" resultType="java.lang.Integer">
+		 select count(*)from t_video
+
+		</select>
+		
+		
+		<!-- 每页图片 -->
+		<select id="frontVideosCenter" resultType="red.manlian.pojo.Video">
+		 select * from t_video ORDER BY vid DESC limit #{0},#{1} 
+
+		</select>
+		
+		
+		<!-- 视频观看数量增加-->
+		<update id="addVideoCount" parameterType="java.lang.Integer">  
+   
+            update t_video set count = count+1
+            	
+            	where vid=#{vid}
+		</update> 
+		
+		<!-- 查询视频信息-->
+		<select id="findVideoPage" parameterType="java.lang.Integer" resultType="red.manlian.pojo.Video">
+			 select * from t_video WHERE vid=#{vid};
+
+		</select>
+</mapper>

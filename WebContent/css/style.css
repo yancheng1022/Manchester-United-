@@ -1,0 +1,287 @@
+
+body{
+	margin:0;
+	font-family: 'Cabin', sans-serif;
+	
+}
+
+h1,h2,h4,h5,h6{
+	margin:0;			   
+}
+.history h3{
+	margin:0;
+	color:white;		
+}
+p{
+	margin:0;
+}
+ul,label{
+	margin:0;
+	padding:0;
+}
+body a:hover{
+	text-decoration:none;
+}
+
+.matchItem{
+	width:300px;
+	
+	height:108px;;
+
+   margin:0 auto;
+}
+.team1{
+	float:left;
+	margin-top:15px;
+	width:100px;
+	height:76.4px;
+
+}
+.team2{
+	float:left;
+	margin-top:15px;
+	width:95px;
+	height:76.4px;
+	
+}
+.match_start{
+	float:left;
+	margin-top:15px;
+
+	width:100px;
+	height:76.4px;
+}
+.match_start div{
+
+    height: 10px;
+    width: 100px;
+    text-align: center;
+}
+.team_img{
+	width:50px;
+	height:50px;
+	margin:0 auto;
+}
+
+.team1 .team_img{
+
+	width:50px;
+	height:50px;
+	
+}
+.team2 .team_img{
+
+	width:50px;
+	height:50px;
+	
+}
+.team_name{
+	font-size: 14px;
+    font-weight: 500;
+ }
+.current_video{
+	height:88px;
+	width:340px;
+	color:red;
+
+	font-size: 25px;
+    font-weight: 500;
+}
+
+.strip{
+	background:#ed645c;
+	padding:1.3em 1em; 
+}
+.search {
+  position: relative;
+  background: #f3f4f5;  
+  float: left;
+  width: 32%;
+  border-radius:5px;
+}
+.search form {
+  width: 100%;
+}
+.search input[type="text"] {
+  margin: 0px 0;
+  padding: 6px 10px 6px 15px;
+  outline: none;
+  color: #5a5a5a;
+  background: none;
+  border: none;
+  width: 89.33333%;
+  position: relative;
+  font-size: 1em;
+  -webkit-appearance: none;
+}
+.search input[type="submit"] {
+  background: url('../images/search1.png') no-repeat 0px 1px;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  outline: none;
+  position: absolute;
+  height: 24px;
+    top: 3px;
+  right: 8px;
+} 
+.social{
+	float:right;
+	text-align:center;
+}
+.social a {
+color:white;
+width: 35px;
+height: 32px;
+text-align:center;
+line-height:32px;
+display: inline-block;
+margin:0 5px;
+}
+
+.banner img,.banner-btm_grid1 img{
+	width:100%;
+}
+.banner-bottom-grids{
+	margin:2em 0;
+}
+.clr2{
+	background:#858582;
+}
+.clr3{
+	background:#858582;
+}
+.clr4{
+	background:#eee;
+}
+
+
+.bnr-text p{
+	color:#fff;
+	font-size:1.1em;
+}
+.banner-text-info{
+	padding:0;
+}
+.banner-text-info.clr1{
+  margin: 0 1% 0 0;
+  width: 49%;
+  background:#ee987f;
+}
+.banner-text-info.clr2{
+  		width:1140px;
+		
+		height:900px;
+		
+   		margin:0px auto;
+}
+
+.video{
+	width:50%;
+	height:100%;
+	float:left;
+	
+}
+.picture{
+	width:50%;
+	height:100%;
+	float:left;
+	
+}
+.history{
+		 background:black;
+  		width:1140px;
+		
+		height:400px;
+		
+   		margin:0px auto;
+}
+.nowPlayer{
+	text-align:center;
+	width:25%;
+	height:100%;
+	float:left;
+	
+}
+.bestPlayer{
+	text-align:center;
+	width:25%;
+	height:100%;
+	float:left;
+	
+}
+.clubHistory{
+	text-align:center;
+	width:25%;
+	height:100%;
+	float:left;
+	
+}
+
+.oldTrafford{
+	text-align:center;
+	width:25%;
+	height:100%;
+	float:left;
+	
+}
+
+.bnr-text {
+	width: 70%;
+  	float:left;
+  
+  	height:100%
+}
+.range{
+	width:30%;
+	height:40%;
+	float:left;
+
+}
+.calendar{
+	float:left;
+	height:50%;
+	width:30%;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+}
+.goal{
+	float:left;
+	height:10%;
+	width:30%;
+	border-left:1px solid gray;
+}
+
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+
+
+
+

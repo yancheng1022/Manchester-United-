@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="red.manlian.mapper.BackEndDao">
+	<!-- 查询所有球队排名 -->
+	<select id="findRange" resultType="red.manlian.pojo.Range">
+		select * from t_range
+	
+	</select>
+	
+	<!-- 修改所有球队排名 -->
+  
+	<update id="changeRange" parameterType="java.util.List">  
+        <foreach close="" collection="list" index="index" item="item" open="" separator=";">  
+            update t_range  
+            <set>
+           rangec= #{item.rangec},
+           team = #{item.team},
+           result = #{item.result}, 
+           score = #{item.score}
+           </set> 
+            where id=#{item.id}            
+        </foreach>
+	</update> 
+	
+	<!-- 查询所有日程表 -->
+	<select id="findMatch" resultType="red.manlian.pojo.Match">
+		select * from t_calendar
+	
+	</select>
+	
+	<!-- 修改日程表 -->
+  
+	<update id="changeMatch" parameterType="java.util.List">  
+        <foreach close="" collection="list" index="index" item="item" open="" separator=";">  
+            update t_calendar
+            <set>
+           team1_name = #{item.team1_name},
+           team2_name = #{item.team2_name},
+           match_type = #{item.match_type}, 
+           match_time = #{item.match_time}
+           </set> 
+            where id=#{item.id}            
+        </foreach>
+	</update> 
+	
+	<!-- 上传新文章 -->
+  
+	<insert id="subNews" parameterType="red.manlian.pojo.News">  
+      
+          insert into t_news(title,cover,date,readNum,page,auto)   
+          values(#{title},#{cover},#{date},#{readNum},#{page},#{auto})
+       
+	</insert> 
+	
+	<!-- 查询球队名是否存在 -->
+	<select id="checkTeam" parameterType="String" resultType="java.lang.Integer">
+		select count(*) from t_team1 
+			where team = #{teamName}
+		
+	
+	</select>
+	
+	<!-- 添加新队伍-->
+  
+	<insert id="addTeam" parameterType="red.manlian.pojo.Team">  
+      
+          insert into t_team1(team,team1_img)   
+          values(#{team},#{team_imgurl});
+       
+       
+          insert into t_team2(team,team2_img)   
+          values(#{team},#{team_imgurl});
+	</insert> 
+	
+	
+	<!-- 修改滚动图片 -->
+  
+	<update id="add_rollpic" parameterType="red.manlian.pojo.Roll_pic">  
+   
+            update t_rollpic
+            <set>
+            
+           roll_pic1 = #{roll_pic1},
+           roll_pic2 = #{roll_pic2},
+           roll_pic3 = #{roll_pic3}, 
+           roll_pic4 = #{roll_pic4},
+           roll_pic5 = #{roll_pic5},
+           roll_pic6 = #{roll_pic6},
+           roll_pic7 = #{roll_pic7}, 
+           roll_pic8 = #{roll_pic8}
+           </set> 
+                
+    
+	</update> 
+	
+	<!--查询用户数量  -->
+	<select id="getUserCount"  resultType="java.lang.Integer">
+		select count(*) from user 
+				
+	</select>
+	
+	<!--查询指定范围的用户  -->
+	<select id="findUserListForPageBean"  resultType="red.manlian.pojo.User">
+		 select * from user limit #{0},#{1} 
+				
+	</select>
+	
+	<!--查询所有现役球员 -->
+	<select id="findNowPlayers"  resultType="red.manlian.pojo.Player">
+		 select * from t_nowplayer
+				
+	</select>
+	
+	<!--查询所有名人堂球员 -->
+	<select id="findOldPlayers"  resultType="red.manlian.pojo.Player">
+		 select * from t_oldplayer
+				
+	</select>
+	
+	
+	<!-- 添加新现役球员-->
+  
+	<insert id="addNowPlayer" parameterType="red.manlian.pojo.Player">  
+      
+          insert into t_nowplayer(name,img,ballot)   
+          values(#{name},#{img},#{ballot});
+  
+	</insert> 
+	
+	<!-- 添加新名人堂球员-->
+  
+	<insert id="addOldPlayer" parameterType="red.manlian.pojo.Player">  
+      
+          insert into t_oldplayer(name,img,ballot)   
+          values(#{name},#{img},#{ballot});
+  
+	</insert> 
+	
+	<!-- 删除现役球员-->
+	  <delete id="delNowPlayer" parameterType="String">
+        delete from t_nowplayer where pid=#{pid}
+  	  </delete>
+  	  
+  	  <!-- 删除名人堂球员-->
+	  <delete id="delOldPlayer" parameterType="String">
+        delete from t_oldplayer where pid=#{pid}
+  	  </delete>
+  	  
+  	  
+  	  
+	<!--查询图片中心图片 -->
+	<select id="findPictures"  resultType="red.manlian.pojo.Picture">
+		 select * from t_picture
+				
+	</select>
+	
+	
+	<!--查询图片中心图片  -->
+	<select id="getPicCount"  resultType="java.lang.Integer">
+		select count(*) from t_picture
+				
+	</select>
+	<!--查询指定范围的图片  -->
+	<select id="findPicListForPageBean"  resultType="red.manlian.pojo.Picture">
+		 select * from t_picture limit #{0},#{1} 
+				
+	</select>
+	
+	<!-- 添加新图片-->
+  
+	<insert id="addCenterPic" parameterType="red.manlian.pojo.Picture">  
+      
+          insert into t_picture(name,url)   
+          values(#{name},#{url});
+  
+	</insert> 
+	
+	
+	<!-- 删除图片-->
+	  <delete id="delPic" parameterType="String">
+        delete from t_picture where pid=#{pid}
+  	  </delete>
+	
+	<!--查询视频数量  -->
+	<select id="findVideosCount"  resultType="java.lang.Integer">
+		select count(*) from t_video
+				
+	</select>
+	
+	<!--查询指定范围的图片  -->
+	<select id="findVideoListForPageBean"  resultType="red.manlian.pojo.Video">
+		 select * from t_video limit #{0},#{1} 
+				
+	</select>
+	<!-- 添加新视频-->
+  
+	<insert id="addCenterVideo" parameterType="red.manlian.pojo.Video">  
+      
+          insert into t_video(title,count,url,comment,coverUrl)   
+          values(#{title},#{count},#{url},#{comment},#{coverUrl});
+  
+	</insert> 
+	
+	<!-- 删除图片-->
+	  <delete id="delVideo" parameterType="java.lang.Integer">
+        delete from t_video where vid=#{vid}
+  	  </delete>
+</mapper>

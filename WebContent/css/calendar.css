@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+.calendar{
+	text-align:center;	
+	background-color:white;
+}
+.calendar h4{
+	 color:white;
+	 font-weight: bold;
+}
+.calendar_title{
+	background-color:black;;
+}

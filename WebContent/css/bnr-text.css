@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+.bnr-text{
+	padding:0px;
+	text-align:center;
+	
+	background-color:white;
+}
+.bnr-text h4{
+	color:white;
+	 font-weight: bold;
+}
+.bnr-text_title{
+	background-color:black;;
+}
